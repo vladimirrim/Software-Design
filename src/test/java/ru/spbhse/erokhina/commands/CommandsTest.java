@@ -2,6 +2,7 @@ package ru.spbhse.erokhina.commands;
 
 import org.junit.Test;
 import ru.spbhse.erokhina.Environment;
+import ru.spbhse.erokhina.commands.grep.GrepCommandExecutor;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -103,6 +104,70 @@ public class CommandsTest {
 
         assertEquals("50", environment.getOrDefault("a", ""));
         assertEquals(new ArrayList<>(), environment.getPrevCommandOutputLines());
+        assertFalse(environment.getExitFlag());
+    }
+
+    @Test
+    public void testGrepCommand() throws IOException {
+        CommandExecutor executor = new GrepCommandExecutor();
+        Environment environment = new Environment();
+
+        executor.execute(Arrays.asList("star", "src/test/resources/test_file.txt"), environment);
+
+        assertEquals(Collections.singletonList("Twinkle twinkle little star"), environment.getPrevCommandOutputLines());
+        assertFalse(environment.getExitFlag());
+    }
+
+    @Test
+    public void testGrepCommandWithIgnoreCaseFlag() throws IOException {
+        CommandExecutor executor = new GrepCommandExecutor();
+        Environment environment = new Environment();
+
+        executor.execute(Arrays.asList("-i", "STAR", "src/test/resources/test_file.txt"), environment);
+
+        assertEquals(Collections.singletonList("Twinkle twinkle little star"), environment.getPrevCommandOutputLines());
+        assertFalse(environment.getExitFlag());
+    }
+
+    @Test
+    public void testGrepCommandWithWordFlag() throws IOException {
+        CommandExecutor executor = new GrepCommandExecutor();
+        Environment environment = new Environment();
+
+        executor.execute(Arrays.asList("-w", "what", "src/test/resources/test_file.txt"), environment);
+
+        assertEquals(Collections.singletonList("How I wonder what you are"), environment.getPrevCommandOutputLines());
+        assertFalse(environment.getExitFlag());
+
+        environment = new Environment();
+
+        executor.execute(Arrays.asList("-w", "hat", "src/test/resources/test_file.txt"), environment);
+
+        assertEquals(Collections.emptyList(), environment.getPrevCommandOutputLines());
+        assertFalse(environment.getExitFlag());
+    }
+
+    @Test
+    public void testGrepCommandWithAfterContextNum() throws IOException {
+        CommandExecutor executor = new GrepCommandExecutor();
+        Environment environment = new Environment();
+
+        executor.execute(Arrays.asList("-A", "1", "star", "src/test/resources/test_file.txt"), environment);
+
+        assertEquals(Arrays.asList("Twinkle twinkle little star", "How I wonder what you are"),
+                environment.getPrevCommandOutputLines());
+        assertFalse(environment.getExitFlag());
+    }
+
+    @Test
+    public void testGrepCommandManyArguments() throws IOException {
+        CommandExecutor executor = new GrepCommandExecutor();
+        Environment environment = new Environment();
+
+        executor.execute(Arrays.asList("-A", "1", "-i", "STAR", "src/test/resources/test_file.txt"), environment);
+
+        assertEquals(Arrays.asList("Twinkle twinkle little star", "How I wonder what you are"),
+                environment.getPrevCommandOutputLines());
         assertFalse(environment.getExitFlag());
     }
 }

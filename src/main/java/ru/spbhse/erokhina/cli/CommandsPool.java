@@ -1,6 +1,7 @@
 package ru.spbhse.erokhina.cli;
 
 import ru.spbhse.erokhina.commands.*;
+import ru.spbhse.erokhina.commands.grep.GrepCommandExecutor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +20,7 @@ class CommandsPool {
         commands.put("pwd", new PwdCommandExecutor());
         commands.put("exit", new ExitCommandExecutor());
         commands.put("assign", new AssignCommandExecutor());
+        commands.put("grep", new GrepCommandExecutor());
     }
 
     /**
