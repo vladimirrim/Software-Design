@@ -1,5 +1,7 @@
 package ru.spbhse.erokhina;
 
+import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,14 +15,18 @@ public class Environment {
     private final Map<String, String> map;
     private List<String> prevCommandOutputLines = new ArrayList<>();
     private boolean exitFlag = false;
+    private String currentDirectory = ".";
+    private final String homeDirectory = System.getProperty("user.home");
+    private final String pathSeparator = File.separator;
 
-    public Environment () {
+    public Environment() {
         map = new HashMap<>();
     }
 
     /**
      * Puts a new variable.
-     * @param key the name of variable
+     *
+     * @param key   the name of variable
      * @param value the value of variable
      */
     public void put(String key, String value) {
@@ -29,8 +35,9 @@ public class Environment {
 
     /**
      * Gets the value of the variable or returns default value (if variable does not exist).
-     * @param key the name of variable
-     * @param defaultValue defaukt value
+     *
+     * @param key          the name of variable
+     * @param defaultValue default value
      * @return the value of the variable or returns default value
      */
     public String getOrDefault(String key, String defaultValue) {
@@ -43,6 +50,26 @@ public class Environment {
 
     public void setPrevCommandOutputLines(List<String> list) {
         prevCommandOutputLines = list;
+    }
+
+    public String getPathToFile(String filename) {
+        if (Paths.get(filename).isAbsolute()) {
+            return filename;
+        } else {
+            return currentDirectory + pathSeparator + filename;
+        }
+    }
+
+    public String getHomeDirectory() {
+        return homeDirectory;
+    }
+
+    public String getCurrentDirectory() {
+        return currentDirectory;
+    }
+
+    public void setCurrentDirectory(String currentDirectory) {
+        this.currentDirectory = currentDirectory;
     }
 
     public void setExitFlag(boolean val) {

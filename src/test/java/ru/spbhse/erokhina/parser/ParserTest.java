@@ -4,9 +4,9 @@ import org.junit.Test;
 import ru.spbhse.erokhina.Environment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Arrays;
 
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertTrue;
@@ -31,6 +31,17 @@ public class ParserTest {
 
         List<ParsedCommand> actualList = parser.parse("echo aaa bbb ccc", new Environment());
         List<ParsedCommand> expectedList = singletonList(new ParsedCommand("echo", Arrays.asList("aaa", "bbb", "ccc")));
+
+        assertTrue(checkEquality(expectedList, actualList));
+    }
+
+    @Test
+    public void testCdAndLs() {
+        ParserImpl parser = new ParserImpl();
+
+        List<ParsedCommand> actualList = parser.parse("cd aaa | ls", new Environment());
+        List<ParsedCommand> expectedList = Arrays.asList(new ParsedCommand("cd", singletonList("aaa")),
+                new ParsedCommand("ls", Collections.emptyList()));
 
         assertTrue(checkEquality(expectedList, actualList));
     }

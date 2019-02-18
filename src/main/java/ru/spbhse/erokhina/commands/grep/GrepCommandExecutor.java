@@ -42,7 +42,7 @@ public class GrepCommandExecutor implements CommandExecutor {
         List<String> result = new ArrayList<>();
 
         if (arguments.getFileName() != null) {
-            inputLines = Files.readAllLines(Paths.get(arguments.getFileName()));
+            inputLines = Files.readAllLines(Paths.get(environment.getPathToFile(arguments.getFileName())));
         } else {
             inputLines = environment.getPrevCommandOutputLines();
         }

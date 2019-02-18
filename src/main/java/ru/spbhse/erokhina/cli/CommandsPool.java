@@ -21,6 +21,8 @@ class CommandsPool {
         commands.put("exit", new ExitCommandExecutor());
         commands.put("assign", new AssignCommandExecutor());
         commands.put("grep", new GrepCommandExecutor());
+        commands.put("cd", new CdCommandExecutor());
+        commands.put("ls", new LsCommandExecutor());
     }
 
     /**

@@ -51,7 +51,7 @@ public class ParserImpl implements Parser {
                         growingStrBuilder = new StringBuilder();
                     }
 
-                    growingStrBuilder.append(String.valueOf(curSymbol));
+                    growingStrBuilder.append(curSymbol);
 
                     int i = curPos + 1;
                     while (i < n && str.charAt(i) != curSymbol) {
@@ -63,7 +63,7 @@ public class ParserImpl implements Parser {
                         throw new ParserException("Found unmatched symbol [" + curSymbol + "] in position: " + curPos);
                     }
 
-                    growingStrBuilder.append(String.valueOf(curSymbol));
+                    growingStrBuilder.append(curSymbol);
 
                     if (!growingStrBuilder.toString().isEmpty()) {
                         resList.add(growingStrBuilder.toString());

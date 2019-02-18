@@ -16,7 +16,8 @@ public class CatCommandExecutor implements CommandExecutor {
         if (args.isEmpty()) {
             environment.setPrevCommandOutputLines(environment.getPrevCommandOutputLines());
         } else {
-            environment.setPrevCommandOutputLines(Files.readAllLines(Paths.get(args.get(0))));
+            environment.setPrevCommandOutputLines(Files.readAllLines(Paths.
+                    get(environment.getPathToFile(args.get(0)))));
         }
     }
 }

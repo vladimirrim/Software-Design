@@ -22,7 +22,7 @@ public class WcCommandExecutor implements CommandExecutor {
         if (args.isEmpty()) {
             input = environment.getPrevCommandOutputLines();
         } else {
-            input = Files.readAllLines(Paths.get(args.get(0)));
+            input = Files.readAllLines(Paths.get(environment.getPathToFile(args.get(0))));
         }
 
         for (String line : input) {

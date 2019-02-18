@@ -2,6 +2,7 @@ package ru.spbhse.erokhina.commands;
 
 import ru.spbhse.erokhina.Environment;
 
+import java.nio.file.Paths;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
@@ -12,6 +13,6 @@ import static java.util.Collections.singletonList;
 public class PwdCommandExecutor implements CommandExecutor {
     @Override
     public void execute(List<String> args, Environment environment) {
-        environment.setPrevCommandOutputLines(singletonList(System.getProperty("user.dir")));
+        environment.setPrevCommandOutputLines(singletonList(Paths.get(environment.getCurrentDirectory()).toAbsolutePath().toString()));
     }
 }
