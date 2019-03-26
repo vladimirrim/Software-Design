@@ -39,13 +39,14 @@ public class GrepCommandExecutor implements CommandExecutor {
         }
 
         List<String> inputLines;
-        List<String> result = new ArrayList<>();
 
         if (arguments.getFileName() != null) {
             inputLines = Files.readAllLines(Paths.get(arguments.getFileName()));
         } else {
             inputLines = environment.getPrevCommandOutputLines();
         }
+
+        boolean[] isAddedToAns = new boolean[inputLines.size()];
 
         Pattern compiledPattern = Pattern.compile(pattern, mask);
         int curPos = 0;
@@ -55,16 +56,26 @@ public class GrepCommandExecutor implements CommandExecutor {
             Matcher matcher = compiledPattern.matcher(curLine);
 
             if (matcher.find()) {
-                result.add(curLine);
+                isAddedToAns[curPos] = true;
+
+                int j = curPos;
 
                 for (int i = 0; i < arguments.getLinesAfterContextNum() &&
-                        curPos < inputLines.size() - 1; i++) {
-                    curPos++;
+                        j < inputLines.size() - 1; i++) {
+                    j++;
 
-                    result.add(inputLines.get(curPos));
+                    isAddedToAns[j] = true;
                 }
             }
             curPos++;
+        }
+
+        List<String> result = new ArrayList<>();
+
+        for (int i = 0; i < inputLines.size(); i++) {
+            if (isAddedToAns[i]) {
+                result.add(inputLines.get(i));
+            }
         }
 
         environment.setPrevCommandOutputLines(result);
