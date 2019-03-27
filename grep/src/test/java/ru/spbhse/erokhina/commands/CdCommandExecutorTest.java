@@ -13,19 +13,16 @@ import static org.junit.Assert.*;
 
 public class CdCommandExecutorTest {
 
-    @Test
-    public void testCdTwoArguments() throws IOException {
+    @Test(expected = CommandExecutionException.class)
+    public void testCdTwoArguments() throws IOException, CommandExecutionException {
         CommandExecutor executor = new CdCommandExecutor();
         Environment environment = new Environment();
 
         executor.execute(Arrays.asList("kok", "kek"), environment);
-
-        assertEquals(Collections.singletonList("Cd: too much arguments"), environment.getPrevCommandOutputLines());
-        assertFalse(environment.getExitFlag());
     }
 
     @Test
-    public void testCdZeroArguments() throws IOException {
+    public void testCdZeroArguments() throws IOException, CommandExecutionException {
         CommandExecutor executor = new CdCommandExecutor();
         Environment environment = new Environment();
 
@@ -38,7 +35,7 @@ public class CdCommandExecutorTest {
     }
 
     @Test
-    public void testCdOneArgument() throws IOException {
+    public void testCdOneArgument() throws IOException, CommandExecutionException {
         CommandExecutor executor = new CdCommandExecutor();
         Environment environment = new Environment();
 
@@ -49,14 +46,11 @@ public class CdCommandExecutorTest {
         assertFalse(environment.getExitFlag());
     }
 
-    @Test
-    public void testCdNoSuchDirectory() throws IOException {
+    @Test(expected = CommandExecutionException.class)
+    public void testCdNoSuchDirectory() throws IOException, CommandExecutionException {
         CommandExecutor executor = new CdCommandExecutor();
         Environment environment = new Environment();
 
         executor.execute(Collections.singletonList("src/test/resources/test_file.txt"), environment);
-
-        assertEquals(Collections.singletonList("Cd: no such directory: src/test/resources/test_file.txt"), environment.getPrevCommandOutputLines());
-        assertFalse(environment.getExitFlag());
     }
 }

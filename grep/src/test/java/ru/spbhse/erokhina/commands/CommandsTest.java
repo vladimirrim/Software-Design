@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class CommandsTest {
     @Test
-    public void testEcho() throws IOException {
+    public void testEcho() throws IOException, CommandExecutionException {
         CommandExecutor executor = new EchoCommandExecutor();
         Environment environment = new Environment();
 
@@ -32,7 +32,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testEchoCommandWithPrevOutput() throws IOException {
+    public void testEchoCommandWithPrevOutput() throws IOException, CommandExecutionException {
         CommandExecutor executor = new EchoCommandExecutor();
         Environment environment = new Environment();
 
@@ -46,7 +46,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testCatCommand() throws IOException {
+    public void testCatCommand() throws IOException, CommandExecutionException {
         CommandExecutor executor = new CatCommandExecutor();
         Environment environment = new Environment();
 
@@ -58,7 +58,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testCatCommandWithPrevOutput() throws IOException {
+    public void testCatCommandWithPrevOutput() throws IOException, CommandExecutionException {
         CommandExecutor executor = new CatCommandExecutor();
         Environment environment = new Environment();
 
@@ -72,7 +72,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testExitCommand() throws IOException {
+    public void testExitCommand() throws IOException, CommandExecutionException {
         CommandExecutor executor = new ExitCommandExecutor();
         Environment environment = new Environment();
 
@@ -82,7 +82,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testWcCommandWithPrevOutput() throws IOException {
+    public void testWcCommandWithPrevOutput() throws IOException, CommandExecutionException {
         CommandExecutor executor = new WcCommandExecutor();
         Environment environment = new Environment();
 
@@ -96,7 +96,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testAssignCommand() throws IOException {
+    public void testAssignCommand() throws IOException, CommandExecutionException {
         CommandExecutor executor = new AssignCommandExecutor();
         Environment environment = new Environment();
 
@@ -108,7 +108,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testGrepCommand() throws IOException {
+    public void testGrepCommand() throws IOException, CommandExecutionException {
         CommandExecutor executor = new GrepCommandExecutor();
         Environment environment = new Environment();
 
@@ -119,7 +119,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testGrepCommandWithIgnoreCaseFlag() throws IOException {
+    public void testGrepCommandWithIgnoreCaseFlag() throws IOException, CommandExecutionException {
         CommandExecutor executor = new GrepCommandExecutor();
         Environment environment = new Environment();
 
@@ -130,7 +130,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testGrepCommandWithWordFlag() throws IOException {
+    public void testGrepCommandWithWordFlag() throws IOException, CommandExecutionException {
         CommandExecutor executor = new GrepCommandExecutor();
         Environment environment = new Environment();
 
@@ -148,7 +148,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testGrepCommandWithAfterContextNum() throws IOException {
+    public void testGrepCommandWithAfterContextNum() throws IOException, CommandExecutionException {
         CommandExecutor executor = new GrepCommandExecutor();
         Environment environment = new Environment();
 
@@ -160,7 +160,7 @@ public class CommandsTest {
     }
 
     @Test
-    public void testGrepCommandManyArguments() throws IOException {
+    public void testGrepCommandManyArguments() throws IOException, CommandExecutionException {
         CommandExecutor executor = new GrepCommandExecutor();
         Environment environment = new Environment();
 

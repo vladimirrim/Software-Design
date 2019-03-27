@@ -12,49 +12,42 @@ import static org.junit.Assert.assertFalse;
 
 public class LsCommandExecutorTest {
 
-    @Test
-    public void testLsTwoArguments() throws IOException {
+    @Test(expected = CommandExecutionException.class)
+    public void testLsTwoArguments() throws IOException, CommandExecutionException {
         CommandExecutor executor = new LsCommandExecutor();
         Environment environment = new Environment();
 
         executor.execute(Arrays.asList("kok", "kek"), environment);
-
-        assertEquals(Collections.singletonList("Ls: too much arguments"), environment.getPrevCommandOutputLines());
-        assertFalse(environment.getExitFlag());
     }
 
     @Test
-    public void testLsZeroArguments() throws IOException {
+    public void testLsZeroArguments() throws IOException, CommandExecutionException {
         CommandExecutor executor = new LsCommandExecutor();
         Environment environment = new Environment();
 
         executor.execute(Collections.singletonList("src/test/resources/"), environment);
         executor.execute(Collections.emptyList(), environment);
 
-        assertEquals(Arrays.asList("dummy_dir", "test_file.txt"), environment.getPrevCommandOutputLines());
+        assertEquals(Arrays.asList("dummy_dir", "f.txt", "test_file.txt"), environment.getPrevCommandOutputLines());
         assertFalse(environment.getExitFlag());
     }
 
     @Test
-    public void testLsOneArgument() throws IOException {
+    public void testLsOneArgument() throws IOException, CommandExecutionException {
         CommandExecutor executor = new LsCommandExecutor();
         Environment environment = new Environment();
 
         executor.execute(Collections.singletonList("src/test/resources/"), environment);
 
-        assertEquals(Arrays.asList("dummy_dir", "test_file.txt"), environment.getPrevCommandOutputLines());
+        assertEquals(Arrays.asList("dummy_dir", "f.txt", "test_file.txt"), environment.getPrevCommandOutputLines());
         assertFalse(environment.getExitFlag());
     }
 
-    @Test
-    public void testLsNoSuchDirectory() throws IOException {
+    @Test(expected = CommandExecutionException.class)
+    public void testLsNoSuchDirectory() throws IOException, CommandExecutionException {
         CommandExecutor executor = new LsCommandExecutor();
         Environment environment = new Environment();
 
         executor.execute(Collections.singletonList("src/test/resources/test_file.txt"), environment);
-
-        assertEquals(Collections.singletonList("Ls: no such directory: src/test/resources/test_file.txt"),
-                environment.getPrevCommandOutputLines());
-        assertFalse(environment.getExitFlag());
     }
 }
