@@ -16,6 +16,6 @@ public interface CommandExecutor {
      * @param args arguments for this command
      * @param environment given environment
      */
-    void execute(List<String> args, Environment environment) throws IOException;
+    void execute(List<String> args, Environment environment) throws IOException, CommandExecutionException;
 
 }

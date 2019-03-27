@@ -69,7 +69,7 @@ public class Environment {
     }
 
     public void setCurrentDirectory(String currentDirectory) {
-        this.currentDirectory = currentDirectory;
+        this.currentDirectory = Paths.get(currentDirectory).toAbsolutePath().normalize().toString();
     }
 
     public void setExitFlag(boolean val) {

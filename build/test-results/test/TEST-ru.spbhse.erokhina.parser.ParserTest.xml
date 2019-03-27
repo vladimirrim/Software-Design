@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.spbhse.erokhina.parser.ParserTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2019-02-18T14:55:20" hostname="vladimir" time="0.016">
+  <properties/>
+  <testcase name="testSimpleEcho" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.002"/>
+  <testcase name="testEchoWithSingleQuotes" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.0"/>
+  <testcase name="testWithExceptionOnePipe" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.0"/>
+  <testcase name="testWithExceptionEmptyCommand" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.0"/>
+  <testcase name="testWithPipe" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.0"/>
+  <testcase name="testAssignmentWithAnotherCommand" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.0"/>
+  <testcase name="testCdAndLs" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.001"/>
+  <testcase name="testEchoWithEnvironment" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.0"/>
+  <testcase name="testEchoSeveralArguments" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.0"/>
+  <testcase name="testSimpleAssignment" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.001"/>
+  <testcase name="testUnknownVars" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.0"/>
+  <testcase name="testWithPipeWithoutSpace" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.001"/>
+  <testcase name="testEchoWithDoubleQuotes" classname="ru.spbhse.erokhina.parser.ParserTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

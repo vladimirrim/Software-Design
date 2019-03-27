@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.spbhse.erokhina.commands.CommandsTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2019-02-18T14:55:20" hostname="vladimir" time="0.068">
+  <properties/>
+  <testcase name="testExitCommand" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.001"/>
+  <testcase name="testGrepCommandWithAfterContextNum" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.039"/>
+  <testcase name="testEcho" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.001"/>
+  <testcase name="testCatCommandWithPrevOutput" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.001"/>
+  <testcase name="testWcCommandWithPrevOutput" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.001"/>
+  <testcase name="testGrepCommandWithIgnoreCaseFlag" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.003"/>
+  <testcase name="testGrepCommand" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.002"/>
+  <testcase name="testCatCommand" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.002"/>
+  <testcase name="testGrepCommandManyArguments" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.003"/>
+  <testcase name="testAssignCommand" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.001"/>
+  <testcase name="testEchoCommandWithPrevOutput" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.0"/>
+  <testcase name="testGrepCommandWithWordFlag" classname="ru.spbhse.erokhina.commands.CommandsTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

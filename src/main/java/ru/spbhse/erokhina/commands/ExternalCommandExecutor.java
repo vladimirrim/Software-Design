@@ -15,6 +15,7 @@ public class ExternalCommandExecutor implements CommandExecutor {
 
     /**
      * Sets the name of external command.
+     *
      * @param commandName name for external command
      */
     public void setCommandName(String commandName) {
@@ -30,7 +31,7 @@ public class ExternalCommandExecutor implements CommandExecutor {
         }
 
         ProcessBuilder processBuilder = new ProcessBuilder(command.toString())
-                .directory(new File(System.getProperty("user.dir")));
+                .directory(new File(environment.getCurrentDirectory()));
 
         Process process = processBuilder.start();
         try {

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ru.spbhse.erokhina.CLI.iml" filepath="$PROJECT_DIR$/.idea/modules/ru.spbhse.erokhina.CLI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ru.spbhse.erokhina.CLI.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ru.spbhse.erokhina.CLI.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ru.spbhse.erokhina.CLI.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ru.spbhse.erokhina.CLI.test.iml" />
+    </modules>
+  </component>
+</project>

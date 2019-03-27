@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.spbhse.erokhina.commands.CdCommandExecutorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-02-18T14:55:20" hostname="vladimir" time="0.009">
+  <properties/>
+  <testcase name="testCdOneArgument" classname="ru.spbhse.erokhina.commands.CdCommandExecutorTest" time="0.005"/>
+  <testcase name="testCdTwoArguments" classname="ru.spbhse.erokhina.commands.CdCommandExecutorTest" time="0.0"/>
+  <testcase name="testCdNoSuchDirectory" classname="ru.spbhse.erokhina.commands.CdCommandExecutorTest" time="0.0"/>
+  <testcase name="testCdZeroArguments" classname="ru.spbhse.erokhina.commands.CdCommandExecutorTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
